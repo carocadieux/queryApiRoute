@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import People from "./components/People"
+import Creatures from "./components/Creatures"
 
 
 
@@ -7,7 +7,7 @@ const queryClient = new QueryClient()
 function App() {
     return(
       <QueryClientProvider client={queryClient}>
-        <People />
+        <Creatures />
       </QueryClientProvider>
     )
 }
