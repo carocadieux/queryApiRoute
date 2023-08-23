@@ -1,20 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
+import CreaturesService from "../services/CreaturesService";
+
+const creaturesService = new CreaturesService();
 
 
 const Creatures = () => {
-
-    const getCreatures = async () => {
-        
-        const res = await fetch("https://eldenring.fanapis.com/api/creatures")
-        if (!res.ok) throw new Error()
-        const creatures = await res.json();
-        console.log(creatures.data);
-        return creatures.data; 
-    }
-
     const { isError, isLoading, error, data} = useQuery({
         queryKey: ["creatures"],
-        queryFn: getCreatures,
+        queryFn: () => creaturesService.getAllCreatures(),
     })
 
     if (isLoading) return <div>Loading...</div>
