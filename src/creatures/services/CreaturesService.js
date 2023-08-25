@@ -1,8 +1,8 @@
 import { config } from '../../config';
 
 
-class CreaturesService {
-    endpoint = "creatures";
+class CreaturesService {  //declaration class
+    endpoint = "creatures";    //déclaration propriétés
     baseUrl = config.baseUrl;
     creaturesUrl = `${this.baseUrl}/${this.endpoint}`;
 
@@ -13,10 +13,11 @@ class CreaturesService {
         return data.data;
     }
 
-    async getCreaturesById(id) {
-		const res = await fetch(`${this.creaturesUrl}/${id}`)
+    async getCreatureByname(id) {
+		const res = await fetch(`${this.creaturesUrl}/${id}`)  //this représente la class CreaturesService
 		if (!res.ok) throw new Error();
-		return await res.json();
+        const data = await res.json();
+		return data;
 	}
 }
 
