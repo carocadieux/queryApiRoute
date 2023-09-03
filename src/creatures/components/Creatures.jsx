@@ -17,7 +17,7 @@ const Creatures = () => {
     return <div>{data && data.map(creatures => {
         return (
             <Link to={`/creatures/${creatures.id}`} key={creatures.id}>   
-                <h1>{creatures.id}</h1>
+                <h1>{creatures.name}</h1>
             </Link>
             
         )

@@ -7,17 +7,17 @@ class CreaturesService {  //declaration class
     creaturesUrl = `${this.baseUrl}/${this.endpoint}`;
 
     async getAllCreatures() {
-        const res = await fetch(this.creaturesUrl)
+        const res = await fetch(this.creaturesUrl);
         if (!res.ok) throw new Error();
         const data = await res.json();
         return data.data;
     }
 
     async getCreatureByname(id) {
-		const res = await fetch(`${this.creaturesUrl}/${id}`)  //this représente la class CreaturesService
+		const res = await fetch(`${this.creaturesUrl}/${id}`); //this représente la class CreaturesService
 		if (!res.ok) throw new Error();
         const data = await res.json();
-		return data;
+		return data.data;
 	}
 }
 
