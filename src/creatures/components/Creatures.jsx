@@ -13,7 +13,7 @@ const Creatures = () => {
 
     if (isLoading) return <div>Loading...</div>
     if (isError) return <div>{error.message}</div>
-    
+    console.log(data);
     return <div>{data && data.map(creatures => {
         return (
             <Link to={`/creatures/${creatures.id}`} key={creatures.id}>   

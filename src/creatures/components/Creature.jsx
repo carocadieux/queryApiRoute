@@ -8,7 +8,7 @@ const creaturesService = new CreaturesService();
 
 const Creature = () => {
     const params = useParams();
-   // console.log(params);
+    console.log(params);
     const { isError, isLoading, error, data} = useQuery({
         queryKey: ["creature", params.id],
         queryFn: () => creaturesService.getCreatureByname(params.id),
@@ -16,7 +16,7 @@ const Creature = () => {
 
     if (isLoading) return <div>Loading...</div>
     if (isError) return <div>{error.message}</div>
-    //console.log(data);
+    console.log(data);
     return (
         <div>
         {data &&  (
