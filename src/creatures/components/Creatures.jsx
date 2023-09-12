@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import CreaturesService from "../services/CreaturesService";
 import { Link } from "react-router-dom";
+import FavoriteButton from "../../favorites/component/favoriteButton/FavoriteButton";
 
 const creaturesService = new CreaturesService();
 
@@ -16,10 +17,13 @@ const Creatures = () => {
     console.log(data);
     return <div>{data && data.map(creatures => {
         return (
-            <Link to={`/creatures/${creatures.id}`} key={creatures.id}>   
-                <h1>{creatures.name}</h1>
-            </Link>
-            
+            <div key={creatures.list}>
+                <FavoriteButton creatures={creatures}  key={creatures.FavoriteButton}/>
+                <Link to={`/creatures/${creatures.id}`} key={creatures.id}> 
+                    
+                    <h1>{creatures.name}</h1>
+                </Link>
+            </div>
         )
     })}</div>
 }
